@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import {Image as NativeImage} from 'react-native'
 
 export function Image(props) {
@@ -11,6 +11,6 @@ export function Image(props) {
   )
 }
 
-Image.prototypes = {
-  source: PropTypes.string
+Image.propTypes = {
+  source: PropTypes.string,
 }

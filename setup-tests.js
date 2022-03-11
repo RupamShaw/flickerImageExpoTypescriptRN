@@ -7,12 +7,13 @@ import 'jest-enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Enzyme from 'enzyme'
+import {JSDOM} from 'jsdom'
 // global.fetch = require("jest-fetch-mock");
 /**
  * Set up DOM in node.js environment for Enzyme to mount to
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const {JSDOM} = require('jsdom')
+// const {JSDOM} = require('jsdom')
 
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>')
 const {window} = jsdom
@@ -23,12 +24,14 @@ function copyProps(src, target) {
     ...Object.getOwnPropertyDescriptors(target),
   })
 }
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line  @typescript-eslint/no-unused-vars
 window.alert = msg => {
   // console.log(msg);
 }
 window.matchMedia = () => ({})
-window.scrollTo = () => {}
+window.scrollTo = () => {
+  // do nothing.
+}
 global.window = window
 global.document = window.document
 global.navigator = {
